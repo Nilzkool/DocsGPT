@@ -30,44 +30,47 @@ the "Tools" section of the DocsGPT application settings in the user interface.
 DocsGPT includes a suite of pre-built tools designed to expand its capabilities out-of-the-box. Below is an overview of the currently available tools. 
 
 <ToolCards
-  items={[
-    {
-      title: 'API Tool',
-      link: '/Tools/api-tool',
-      description: 'A highly flexible tool that allows DocsGPT to interact with virtually any API without needing to write custom Python code.'
-    },
-    {
-      title: 'Brave Search Tool',
-      link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/brave.py',
-      description: 'Enables DocsGPT to perform real-time web and image searches using the Brave Search API for up-to-date information.'
-    },
-    {
-      title: 'Cryptoprice Tool',
-      link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/cryptoprice.py',
-      description: 'Fetches the current price of specified cryptocurrencies.'
-    },
-    {
-      title: 'Ntfy Tool',
-      link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/ntfy.py',
-      description: 'Allows DocsGPT to send push notifications to Ntfy.sh channels, ideal for alerts and updates.'
-    },
-    {
-      title: 'PostgreSQL Tool',
-      link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/postgres.py',
-      description: 'Provides capabilities to connect to a PostgreSQL database, execute SQL queries, and retrieve schema information.'
-    },
-    {
-      title: 'Read Webpage Tool', // Renamed from Scraper Tool
-      link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/read_webpage.py',
-      description: 'Enables DocsGPT to fetch and extract (scrape) textual content from specified web page URLs.'
-    },
-    {
-      title: 'Telegram Tool',
-      link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/telegram.py',
-      description: 'Allows DocsGPT to send messages or images to Telegram chats via a Telegram Bot.'
-    }
-  ]}
-/>
+  items=[{
+    title: 'API Tool',
+    link: '/Tools/api-tool',
+    description: 'A highly flexible tool that allows DocsGPT to interact with virtually any API without needing to write custom Python code.'
+  },
+  {
+    title: 'Brave Search Tool',
+    link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/brave.py',
+    description: 'Enables DocsGPT to perform real-time web and image searches using the Brave Search API for up-to-date information.'
+  },
+  {
+    title: 'DuckDuckGo Search Tool',
+    link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/duckduckgo.py',
+    description: 'Performs web and image searches via DuckDuckGo, returning search results and images for relevant queries.'
+  },
+  {
+    title: 'Cryptoprice Tool',
+    link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/cryptoprice.py',
+    description: 'Fetches the current price of specified cryptocurrencies.'
+  },
+  {
+    title: 'Ntfy Tool',
+    link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/ntfy.py',
+    description: 'Allows DocsGPT to send push notifications to Ntfy.sh channels, ideal for alerts and updates.'
+  },
+  {
+    title: 'PostgreSQL Tool',
+    link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/postgres.py',
+    description: 'Provides capabilities to connect to a PostgreSQL database, execute SQL queries, and retrieve schema information.'
+  },
+  {
+    title: 'Read Webpage Tool', // Renamed from Scraper Tool
+    link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/read_webpage.py',
+    description: 'Enables DocsGPT to fetch and extract (scrape) textual content from specified web page URLs.'
+  },
+  {
+    title: 'Telegram Tool',
+    link: 'https://github.com/arc53/DocsGPT/blob/main/application/agents/tools/telegram.py',
+    description: 'Allows DocsGPT to send messages or images to Telegram chats via a Telegram Bot.'
+  }
+] />
 
 ## Using Tools in DocsGPT (User Perspective)
 
@@ -77,7 +80,7 @@ Interacting with tools in DocsGPT is designed to be intuitive:
 
 2.  **Configuration in UI:**
     * Tools are generally managed and configured within the DocsGPT application's settings, found under a "Tools" section in the GUI.
-    * For tools that interact with external services (like Brave Search, Telegram, or any service via the API Tool), you might need to provide authentication credentials (e.g., API keys, tokens) or specific endpoint information during the tool's setup in the UI.
+    * For tools that interact with external services (like Brave Search, DuckDuckGo, Telegram, or any service via the API Tool), you might need to provide authentication credentials (e.g., API keys, tokens) or specific endpoint information during the tool's setup in the UI.
 
 3.  **Prompt Engineering for Tools:** While the LLM aims to intelligently use tools, for more complex or reliable agent-like behaviors, you might need to customize the system prompts. Modifying the prompt can guide the LLM on when and how to prioritize or chain tools to achieve specific outcomes, especially if you're building an agent designed to perform a certain sequence of actions every time. For more on this, see [Customising Prompts](/Guides/Customising-prompts).
 
