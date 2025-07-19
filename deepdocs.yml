@@ -3,3 +3,4 @@ target:
 reinit: "a"
 include:
   -  "application"
+  -  ".env-template"
