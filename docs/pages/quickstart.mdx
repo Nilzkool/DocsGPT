@@ -20,8 +20,8 @@ The easiest way to launch DocsGPT is using the provided `setup.sh` script. This 
    First, you need to download the DocsGPT repository to your local machine. You can do this using Git:
 
    ```bash
-   git clone https://github.com/arc53/DocsGPT.git
-   cd DocsGPT
+git clone https://github.com/arc53/DocsGPT.git
+cd DocsGPT
    ```
 
 2. **Run the `setup.sh` script:**
@@ -29,7 +29,7 @@ The easiest way to launch DocsGPT is using the provided `setup.sh` script. This 
    Navigate to the DocsGPT directory in your terminal and execute the `setup.sh` script:
 
    ```bash
-   ./setup.sh
+./setup.sh
    ```
 
 3. **Follow the interactive setup:**
@@ -39,7 +39,7 @@ The easiest way to launch DocsGPT is using the provided `setup.sh` script. This 
    ```
    Welcome to DocsGPT Setup!
    How would you like to proceed?
-   1) Use DocsGPT Public API Endpoint (simple and free)
+   1) Use DocsGPT Public API Endpoint (simple and free, hosted at https://oai.arc53.com)
    2) Serve Local (with Ollama)
    3) Connect Local Inference Engine
    4) Connect Cloud API Provider
@@ -48,7 +48,7 @@ The easiest way to launch DocsGPT is using the provided `setup.sh` script. This 
 
    Let's break down each option:
 
-   * **1) Use DocsGPT Public API Endpoint (simple and free):**  This is the simplest option to get started. It utilizes the DocsGPT public API, requiring no API keys or local model downloads. Choose this for a quick and easy setup.
+   * **1) Use DocsGPT Public API Endpoint (simple and free, hosted at https://oai.arc53.com):**  This is the simplest option to get started. It utilizes the DocsGPT public API hosted at https://oai.arc53.com, requiring no API keys or local model downloads. Choose this for a quick and easy setup.
 
    * **2) Serve Local (with Ollama):** This option allows you to run a Large Language Model locally using [Ollama](https://ollama.com/).  You'll be prompted to choose between CPU or GPU for Ollama and select a model to download. This is a good option for local processing and experimentation.
 
@@ -67,7 +67,7 @@ The easiest way to launch DocsGPT is using the provided `setup.sh` script. This 
    To stop DocsGPT, simply open a new terminal in the `DocsGPT` directory and run:
 
    ```bash
-   docker compose -f deployment/docker-compose.yaml down
+docker compose -f deployment/docker-compose.yaml down
    ```
    (or the specific `docker compose` command shown at the end of the `setup.sh` execution, which may include optional compose files depending on your choices).
 
@@ -82,8 +82,8 @@ For Windows users, we provide a PowerShell script that offers the same functiona
    First, you need to download the DocsGPT repository to your local machine. You can do this using Git:
 
    ```powershell
-   git clone https://github.com/arc53/DocsGPT.git
-   cd DocsGPT
+git clone https://github.com/arc53/DocsGPT.git
+cd DocsGPT
    ```
 
 2. **Run the `setup.ps1` script:**
@@ -91,7 +91,7 @@ For Windows users, we provide a PowerShell script that offers the same functiona
    Execute the PowerShell setup script:
 
    ```powershell
-   PowerShell -ExecutionPolicy Bypass -File .\setup.ps1
+PowerShell -ExecutionPolicy Bypass -File .\setup.ps1
    ```
 
 3. **Follow the interactive setup:**

@@ -1,26 +1,33 @@
 ---
-title:
-description:
+title: My AI Answers Questions Using External Knowledge
+description: Guidelines to adjust DocsGPT responses when leveraging external document contexts.
 ---
 
-# Avoiding hallucinations
+# Avoiding Hallucinations
 
-If your AI uses external knowledge and is not explicit enough, it is ok, because we try to make DocsGPT friendly.
+If your AI uses external knowledge, it may sometimes produce less precise answers. To fine-tune its behavior, you can adjust the prompt used by DocsGPT.
 
-But if you want to adjust it, here is a simple way:-
+- Navigate to `application/prompts/chat_combine_default.txt` (formerly referenced as chat_combine_prompt.txt).
 
-- Got to `application/prompts/chat_combine_prompt.txt`
+- Open the file and review the prompt. For example, the current default prompt is:
 
-- And change it to
-
-
+```markdown
+You are a helpful AI assistant, DocsGPT. You are proactive and helpful. Try to use tools, if they are available to you, 
+be proactive and fill in missing information.
+Users can Upload documents for your context as attachments or sources via UI using the Conversation input box.
+If appropriate, your answers can include code examples, formatted as follows:
+```(language)
+(code)
 ```
-
-You are a DocsGPT, friendly and helpful AI assistant by Arc53 that provides help with documents. You give thorough answers with code examples, if possible.
-Write an answer for the question below based on the provided context.
-If the context provides insufficient information, reply "I cannot answer".
-You have access to chat history and can use it to help answer the question.
+Users are also able to see charts and diagrams if you use them with valid mermaid syntax in your responses.
+Try to respond with mermaid charts if visualization helps with users queries.
+You effectively utilize chat history, ensuring relevant and tailored responses. 
+Try to use additional provided context if it's available, otherwise use your knowledge and tool capabilities.
 ----------------
+Possible additional context from uploaded sources:
 {summaries}
-
 ```
+
+- Modify the prompt as needed to adjust the level of detail or restrict the use of external context. For instance, you might remove `{summaries}` if you prefer the AI to rely solely on its internal knowledge.
+
+By tailoring the prompt, you can better control the balance between external information and the AI’s built-in knowledge, potentially reducing hallucinations and improving accuracy.

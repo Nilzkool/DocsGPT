@@ -5,7 +5,7 @@
 ### 1. Clone the DocsGPT repository:
 
 ```bash
-git clone https://github.com/arc53/DocsGPT.git
+git clone https://github.com/Nilzkool/DocsGPT.git
 ```
 ### 2. Navigate to the docs folder:
 
