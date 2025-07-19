@@ -23,13 +23,13 @@ b. Select the "Instance location." In most cases, the default location works fin
 
 c. Choose "Linux/Unix" as the image and "Ubuntu 20.04 LTS" as the Operating System.
 
-d. Configure the instance plan based on your requirements. A "1 GB, 1vCPU, 40GB SSD, and 2TB transfer" setup is recommended for most scenarios.
+ d. Configure the instance plan based on your requirements. A "1 GB, 1vCPU, 40GB SSD, and 2TB transfer" setup is recommended for most scenarios.
 
-e. Give your instance a unique name and click "Create Instance."
+ e. Give your instance a unique name and click "Create Instance."
 
 PS: It may take a few minutes for the instance setup to complete.
 
-### Connecting to Your newly created Instance
+### Connecting to Your Newly Created Instance
 
 Your instance will be ready a few minutes after creation. To access it, open the instance and click "Connect using SSH."
 
@@ -37,7 +37,7 @@ Your instance will be ready a few minutes after creation. To access it, open the
 
 A terminal window will pop up, and the first step will be to clone the DocsGPT Git repository:
 
-`git clone https://github.com/arc53/DocsGPT.git`
+`git clone https://github.com/Nilzkool/DocsGPT.git`
 
 #### Download the package information
 
@@ -82,7 +82,7 @@ Next, set the correct IP for the Backend by opening the docker-compose.yml file:
 `nano deployment/docker-compose.yaml`
 
 And Change line 7 to: `VITE_API_HOST=http://localhost:7091`
-to this `VITE_API_HOST=http://<your instance public IP>:7091`
+**to** this: `VITE_API_HOST=http://<your instance public IP>:7091`
 
 This will allow the frontend to connect to the backend.
 
@@ -98,11 +98,11 @@ Once this is done you can go ahead and close the terminal window.
 
 #### Enabling Ports 
 
-a. Before you are able to access your live instance, you must first enable the port that it is using.
+ a. Before you are able to access your live instance, you must first enable the port that it is using.
 
-b. Open your Lightsail instance and head to "Networking".
+ b. Open your Lightsail instance and head to "Networking".
 
-c. Then click on "Add rule" under "IPv4 Firewall", enter `5173` as your port, and hit "Create". 
+ c. Then click on "Add rule" under "IPv4 Firewall", enter `5173` as your port, and hit "Create". 
 Repeat the process for port `7091`.
 
 #### Access your instance

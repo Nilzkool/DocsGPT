@@ -1,6 +1,6 @@
 ---
-title:
-description:
+title: Setting Up Different LLMs
+description: Learn how to configure and switch between various language models including the new NovitaLLM.
 ---
 
 import { Callout } from 'nextra/components'
@@ -9,34 +9,28 @@ import { Steps } from 'nextra/components'
 
 # Setting Up Local Language Models for Your App
 
-Setting up local language models for your app can significantly enhance its capabilities, enabling it to understand and generate text in multiple languages without relying on external APIs. By integrating local language models, you can improve privacy, reduce latency, and ensure continuous functionality even in offline environments. Here's a comprehensive guide on how to set up local language models for your application:
+Setting up local language models for your app can significantly enhance its capabilities, enabling it to understand and generate text in multiple languages without relying solely on external APIs. By integrating both cloud-based and open-source models, you can improve privacy, reduce latency, and ensure continuous functionality even in offline environments. Here's a comprehensive guide on how to set up different language models for your application:
 
 ## Steps:
 ### For cloud version LLM change:
-<Steps >
+<Steps>
 ### Step 1
-Visit the chat screen and you will be to see the default LLM selected.
+Visit the chat screen and notice the default LLM that is selected.
 ### Step 2
-Click on it and you will get a drop down of various LLM's available to choose.
+Click on the LLM selector to view the dropdown containing the available language models.
 ### Step 3
-Choose the LLM of your choice.
-
+Choose the LLM of your choice. Options include popular providers such as OpenAI, Azure OpenAI, Anthropic, Groq, Google, and now NovitaLLM, powered by Novita (https://api.novita.ai).
 </Steps>
 
-
-
+*Note:* If you wish to use NovitaLLM, it is available from the same dropdown and works similarly to the other cloud providers.
 
 ### Video Demo
-<Image src="/llms.gif" alt="prompts" width={800} height={500} />
+<Image src="/llms.gif" alt="LLM selection demo" width={800} height={500} />
 
 ### For Open source llm change:
 <Steps>
 ### Step 1
-For open source version please edit `LLM_PROVIDER`, `LLM_NAME` and others in the .env file. Refer to [⚙️ App Configuration](/Deploying/DocsGPT-Settings) for more information.
+For the open source version, please edit the environment variables such as `LLM_PROVIDER`, `LLM_NAME`, and others in the .env file. Refer to [⚙️ App Configuration](/Deploying/DocsGPT-Settings) for more details.
 ### Step 2
-Visit [☁️ Cloud Providers](/Models/cloud-providers) for the updated list of online models. Make sure you have the right API_KEY and correct LLM_PROVIDER.
-For self-hosted please visit [🖥️ Local Inference](/Models/local-inference). 
+Visit [☁️ Cloud Providers](/Models/cloud-providers) for the updated list of online models. Ensure you have the correct API_KEY and LLM_PROVIDER set. For self-hosted setups, please visit [🖥️ Local Inference](/Models/local-inference).
 </Steps>
-
-
-
