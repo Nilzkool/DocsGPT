@@ -1,9 +1,5 @@
 target:
   - url: "docs"
 reinit: "a"
-ignore:
-  -  "tests"
-  -  "scripts"
-  -  "deployment"
-  -  "extensions"
-  -  "frontend"
+include:
+  -  "application"
