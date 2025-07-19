@@ -1,5 +1,5 @@
 target:
   - url: "docs"
-reinit: "c"
+reinit: "p"
 include:
   -  "application"
