@@ -37,7 +37,7 @@ Your instance will be ready a few minutes after creation. To access it, open the
 
 A terminal window will pop up, and the first step will be to clone the DocsGPT Git repository:
 
-`git clone https://github.com/arc53/DocsGPT.git`
+`git clone https://github.com/Nilzkool/DocsGPT.git`
 
 #### Download the package information
 
@@ -77,11 +77,12 @@ SELF_HOSTED_MODEL=false
 
 To save the file, press CTRL+X, then Y, and then ENTER.
 
-Next, set the correct IP for the Backend by opening the docker-compose.yml file:
+Next, set the correct IP for the Backend by opening the docker-compose.yaml file:
 
 `nano deployment/docker-compose.yaml`
 
 And Change line 7 to: `VITE_API_HOST=http://localhost:7091`
+
 to this `VITE_API_HOST=http://<your instance public IP>:7091`
 
 This will allow the frontend to connect to the backend.
@@ -98,11 +99,11 @@ Once this is done you can go ahead and close the terminal window.
 
 #### Enabling Ports 
 
-a. Before you are able to access your live instance, you must first enable the port that it is using.
+(a) Before you are able to access your live instance, you must first enable the port that it is using.
 
-b. Open your Lightsail instance and head to "Networking".
+(b) Open your Lightsail instance and head to "Networking".
 
-c. Then click on "Add rule" under "IPv4 Firewall", enter `5173` as your port, and hit "Create". 
+(c) Then click on "Add rule" under "IPv4 Firewall", enter `5173` as your port, and hit "Create". 
 Repeat the process for port `7091`.
 
 #### Access your instance

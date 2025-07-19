@@ -11,17 +11,17 @@ This guide will walk you through setting up a development environment for DocsGP
 
 For development purposes, you can quickly start MongoDB and Redis containers, which are the primary database and caching systems used by DocsGPT. We provide a dedicated Docker Compose file, `docker-compose-dev.yaml`, located in the `deployment` directory, that includes only these essential services.
 
-You can find the `docker-compose-dev.yaml` file [here](https://github.com/arc53/DocsGPT/blob/main/deployment/docker-compose-dev.yaml).
+You can find the `docker-compose-dev.yaml` file [here](https://github.com/Nilzkool/DocsGPT/blob/main/deployment/docker-compose-dev.yaml).
 
 **Steps to start MongoDB and Redis:**
 
-1.  Navigate to the root directory of your DocsGPT repository in your terminal.
+1. Navigate to the root directory of your DocsGPT repository in your terminal.
 
-2.  Run the following commands to build and start the containers defined in `docker-compose-dev.yaml`:
+2. Run the following commands to build and start the containers defined in `docker-compose-dev.yaml`:
 
     ```bash
-    docker compose -f deployment/docker-compose-dev.yaml build
-    docker compose -f deployment/docker-compose-dev.yaml up -d
+docker compose -f deployment/docker-compose-dev.yaml build
+docker compose -f deployment/docker-compose-dev.yaml up -d
     ```
 
     These commands will start MongoDB and Redis in detached mode, running in the background.
@@ -32,40 +32,40 @@ To run the DocsGPT backend locally, you'll need to set up a Python environment a
 
 **Prerequisites:**
 
-*   **Python 3.12:** Ensure you have Python 3.12 installed on your system. You can check your Python version by running `python --version` or `python3 --version` in your terminal.
+* **Python 3.12:** Ensure you have Python 3.12 installed on your system. You can check your Python version by running `python --version` or `python3 --version` in your terminal.
 
 **Steps to run the backend:**
 
-1.  **Configure Environment Variables:**
+1. **Configure Environment Variables:**
 
     DocsGPT backend settings are configured using environment variables. You can set these either in a `.env` file or directly in the `settings.py` file. For a comprehensive overview of all settings, please refer to the [DocsGPT Settings Guide](/Deploying/DocsGPT-Settings).
 
-    *   **Option 1: Using a `.env` file (Recommended):**
-        *   If you haven't already, create a file named `.env` in the **root directory** of your DocsGPT project.
-        *   Modify the `.env` file to adjust settings as needed. You can find a comprehensive list of configurable options in [`application/core/settings.py`](application/core/settings.py).
+    * **Option 1: Using a `.env` file (Recommended):**
+        * If you haven't already, create a file named `.env` in the **root directory** of your DocsGPT project.
+        * Modify the `.env` file to adjust settings as needed. You can find a comprehensive list of configurable options in [`application/core/settings.py`](application/core/settings.py).
 
-    *   **Option 2: Exporting Environment Variables:**
-        *   Alternatively, you can export environment variables directly in your terminal. However, using a `.env` file is generally more organized for development.
+    * **Option 2: Exporting Environment Variables:**
+        * Alternatively, you can export environment variables directly in your terminal. However, using a `.env` file is generally more organized for development.
 
-2.  **Create a Python Virtual Environment (Optional but Recommended):**
+2. **Create a Python Virtual Environment (Optional but Recommended):**
 
     Using a virtual environment isolates project dependencies and avoids conflicts with system-wide Python packages.
 
-    *   **macOS and Linux:**
+    * **macOS and Linux:**
 
         ```bash
         python -m venv venv
         . venv/bin/activate
         ```
 
-    *   **Windows:**
+    * **Windows:**
 
         ```bash
         python -m venv venv
          venv/Scripts/activate
         ```
 
-3.  **Download Embedding Model:**
+3. **Download Embedding Model:**
 
     The backend requires an embedding model. Download the `mpnet-base-v2` model and place it in the `model/` directory within the project root. You can use the following script:
 
@@ -77,7 +77,7 @@ To run the DocsGPT backend locally, you'll need to set up a Python environment a
 
     Alternatively, you can manually download the zip file from [here](https://d3dg1063dc54p9.cloudfront.net/models/embeddings/mpnet-base-v2.zip), unzip it, and place the extracted folder in `model/`.
 
-4.  **Install Backend Dependencies:**
+4. **Install Backend Dependencies:**
 
     Navigate to the root of your DocsGPT repository and install the required Python packages:
 
@@ -85,7 +85,7 @@ To run the DocsGPT backend locally, you'll need to set up a Python environment a
     pip install -r application/requirements.txt
     ```
 
-5.  **Run the Flask App:**
+5. **Run the Flask App:**
 
     Start the Flask backend application:
 
@@ -95,7 +95,7 @@ To run the DocsGPT backend locally, you'll need to set up a Python environment a
 
     This command will launch the backend server, making it accessible on `http://localhost:7091`.
 
-6.  **Start the Celery Worker:**
+6. **Start the Celery Worker:**
 
     Open a new terminal window (and activate your virtual environment if you used one). Start the Celery worker to handle background tasks:
 
@@ -109,8 +109,8 @@ To run the DocsGPT backend locally, you'll need to set up a Python environment a
 
 For easier debugging, you can launch the Flask app and Celery worker directly from VSCode's debugger.
 
-*   Press <kbd>Shift</kbd> + <kbd>Cmd</kbd> + <kbd>D</kbd> (macOS) or <kbd>Shift</kbd> + <kbd>Windows</kbd> + <kbd>D</kbd> (Windows) to open the Run and Debug view.
-*   You should see configurations named "Flask" and "Celery". Select the desired configuration and click the "Start Debugging" button (green play icon).
+* Press <kbd>Shift</kbd> + <kbd>Cmd</kbd> + <kbd>D</kbd> (macOS) or <kbd>Shift</kbd> + <kbd>Windows</kbd> + <kbd>D</kbd> (Windows) to open the Run and Debug view.
+* You should see configurations named "Flask" and "Celery". Select the desired configuration and click the "Start Debugging" button (green play icon).
 
 ## 3. Start the Frontend
 
@@ -118,11 +118,11 @@ To run the DocsGPT frontend locally, you'll need Node.js and npm (Node Package M
 
 **Prerequisites:**
 
-*   **Node.js version 16 or higher:** Ensure you have Node.js version 16 or greater installed. You can check your Node.js version by running `node -v` in your terminal. npm is usually bundled with Node.js.
+* **Node.js version 16 or higher:** Ensure you have Node.js version 16 or greater installed. You can check your Node.js version by running `node -v` in your terminal. npm is usually bundled with Node.js.
 
 **Steps to start the frontend:**
 
-1.  **Navigate to the Frontend Directory:**
+1. **Navigate to the Frontend Directory:**
 
     In your terminal, change the current directory to the `frontend` folder within your DocsGPT repository:
 
@@ -130,7 +130,7 @@ To run the DocsGPT frontend locally, you'll need Node.js and npm (Node Package M
     cd frontend
     ```
 
-2.  **Install Global Packages (If Needed):**
+2. **Install Global Packages (If Needed):**
 
     If you don't have `husky` and `vite` installed globally, you can install them:
 
@@ -140,7 +140,7 @@ To run the DocsGPT frontend locally, you'll need Node.js and npm (Node Package M
     ```
     You can skip this step if you already have these packages installed or prefer to use local installations (though global installation simplifies running the commands in this guide).
 
-3.  **Install Frontend Dependencies:**
+3. **Install Frontend Dependencies:**
 
     Install the project's frontend dependencies using npm:
 
@@ -150,7 +150,7 @@ To run the DocsGPT frontend locally, you'll need Node.js and npm (Node Package M
 
     This command reads the `package.json` file in the `frontend` directory and installs all listed dependencies, including development dependencies.
 
-4.  **Run the Frontend App:**
+4. **Run the Frontend App:**
 
     Start the frontend development server:
 
