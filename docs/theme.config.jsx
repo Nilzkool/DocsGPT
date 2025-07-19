@@ -1,8 +1,7 @@
 import Image from 'next/image'
 import { Analytics } from '@vercel/analytics/react';
 
-const github = 'https://github.com/arc53/DocsGPT';
-
+const github = 'https://github.com/Nilzkool/DocsGPT';
 
 
 
@@ -56,7 +55,7 @@ const config = {
           DocsGPT
         </a>
         {' | '}
-        <a href="https://github.com/arc53/DocsGPT" target="_blank">
+        <a href="https://github.com/Nilzkool/DocsGPT" target="_blank">
           GitHub
         </a>
         {' | '}
