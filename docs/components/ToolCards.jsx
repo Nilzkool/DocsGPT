@@ -7,9 +7,9 @@ const iconMap = {
     'Ntfy Tool': '/toolIcons/tool_ntfy.svg',
     'PostgreSQL Tool': '/toolIcons/tool_postgres.svg',
     'Read Webpage Tool': '/toolIcons/tool_read_webpage.svg',
-    'Telegram Tool': '/toolIcons/tool_telegram.svg'
+    'Telegram Tool': '/toolIcons/tool_telegram.svg',
+    'DuckDuckGo Search Tool': '/toolIcons/tool_duckduckgo.svg'
 };
-
 
 export function ToolCards({ items }) {
     return (
