@@ -5,7 +5,7 @@ description: High-level architecture of DocsGPT
 
 ## Introduction
 
-DocsGPT is designed as a modular and scalable application for knowledge based GenAI system. This document outlines the high-level architecture of DocsGPT, highlighting its key components.
+DocsGPT is designed as a modular and scalable application for a knowledge-based GenAI system. This document outlines the high-level architecture of DocsGPT, highlighting its key components.
 
 ## High-Level Architecture
 
@@ -32,7 +32,7 @@ flowchart LR
 ### 1. Frontend (React/Vite)
 
 *   **Technology:** Built using React and Vite.
-*   **Responsibility:** This is the user interface of DocsGPT, providing users with an UI to ask questions and receive answers, configure prompts, tools and other settings. It handles user input, displays conversation history, shows sources, and manages settings.
+*   **Responsibility:** This is the user interface of DocsGPT, providing users with a UI to ask questions and receive answers, configure prompts, tools and other settings. It handles user input, displays conversation history, shows sources, and manages settings.
 *   **Key Features:**
     *   Clean and responsive UI.
     *   Simple static client-side rendering.
@@ -54,8 +54,8 @@ flowchart LR
 *   **Technology:** Supports multiple LLM APIs and local engines.
 *   **Responsibility:** This layer provides an abstraction for interacting with Large Language Models (LLMs).
 *   **Key Features:**
-    *   Supports LLMs from OpenAI, Google, Anthropic, Groq, HuggingFace Inference API, Azure OpenAI, also compatable with local models like Ollama, LLaMa.cpp, Text Generation Inference (TGI), SGLang, vLLM, Aphrodite, FriendliAI, and LMDeploy.
-    *   Manages API key handling and request formatting and Tool fromatting.
+    *   Supports LLMs from OpenAI, Google, Anthropic, Groq, HuggingFace Inference API, Azure OpenAI, and now Novita, in addition to compatibility with local models like Ollama, LLaMa.cpp, Text Generation Inference (TGI), SGLang, vLLM, Aphrodite, FriendliAI, and LMDeploy.
+    *   Manages API key handling and request formatting as well as tool formatting.
     *   Offers caching mechanisms to improve response times and reduce API usage.
     *   Handles streaming responses for a more interactive user experience.
 
@@ -71,7 +71,7 @@ flowchart LR
 ### 5. Parser Integration Layer (Part of backend)
 
 *   **Technology:** Supports multiple formats for file processing and remote source uploading.
-*   **Responsibility:** Parser Integration Layer handles uploading, parsing, chunking, embedding, and indexing documents.
+*   **Responsibility:** The Parser Integration Layer handles uploading, parsing, chunking, embedding, and indexing documents.
 *   **Key Features:**
     *   Supports various document formats (PDF, DOCX, TXT, etc.) and remote sources (web URLs, sitemaps).
     *   Handles document parsing, text chunking, and embedding generation.
@@ -80,7 +80,7 @@ flowchart LR
 ### 6. Task Queue (Celery)
 
 *   **Technology:** Celery with Redis as broker and backend.
-*   **Responsibility:** Celery handles asynchronous task processing, for long-running operations such as document ingestion and indexing. This ensures that the main application remains responsive and efficient.
+*   **Responsibility:** Celery handles asynchronous task processing for long-running operations such as document ingestion and indexing. This ensures that the main application remains responsive and efficient.
 *   **Key Features:**
     *   Manages background tasks for document processing and indexing.
     *   Improves application responsiveness by offloading heavy tasks.
@@ -120,7 +120,7 @@ sequenceDiagram
 
 ## Deployment Architecture
 
-DocsGPT is designed to be deployed using Docker and Kubernetes, here is a qucik overview of a simple k8s deployment.
+DocsGPT is designed to be deployed using Docker and Kubernetes. Here is a quick overview of a simple k8s deployment.
 
 ```mermaid
 graph LR
