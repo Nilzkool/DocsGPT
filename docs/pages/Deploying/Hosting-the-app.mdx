@@ -31,3 +31,63 @@ import { DeploymentCards } from '../../components/DeploymentCards';
     }
   ]}
 />
+
+---
+
+# Hosting DocsGPT on Your Own Infrastructure
+
+Follow these instructions to deploy DocsGPT on your own server or cloud instance.
+
+### 1. Clone the Repository
+
+Run the following command to clone the repository:
+
+```bash
+git clone https://github.com/Nilzkool/DocsGPT.git
+```
+
+### 2. Prepare the Environment
+
+Inside the DocsGPT folder, create a `.env` file by copying the contents of `.env_sample`:
+
+```bash
+cp .env_sample .env
+```
+
+Edit the `.env` file as needed, making sure to set the correct IP for the backend. For example, in the `deployment/docker-compose.yaml` file, change the line for `VITE_API_HOST` from:
+
+```
+VITE_API_HOST=http://localhost:7091
+```
+
+to:
+
+```
+VITE_API_HOST=http://<your instance public IP>:7091
+```
+
+### 3. Run the Application
+
+Use the following command to start DocsGPT using Docker Compose:
+
+```bash
+sudo docker compose -f deployment/docker-compose.yaml up -d
+```
+
+The first launch may take several minutes as Docker downloads and builds the necessary images. Once running, your instance will be available at the generated domain or your public IP.
+
+### 4. Pushing to Your Own Repository
+
+If you wish to host your customized version of DocsGPT, follow these steps to push the project to your GitHub repository:
+
+```bash
+git init
+git add .
+git commit -m "first-commit"
+git remote add origin https://github.com/Nilzkool/DocsGPT.git
+git push --set-upstream origin master
+```
+
+Your files are now pushed to your GitHub account.
+
+Enjoy your self-hosted DocsGPT instance!

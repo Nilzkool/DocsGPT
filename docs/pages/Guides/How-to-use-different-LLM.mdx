@@ -1,6 +1,6 @@
 ---
-title:
-description:
+title: How to Use a Different LLM in DocsGPT
+description: Learn how to switch between various LLM providers in DocsGPT, including cloud-based and self-hosted options.
 ---
 
 import { Callout } from 'nextra/components'
@@ -13,30 +13,23 @@ Setting up local language models for your app can significantly enhance its capa
 
 ## Steps:
 ### For cloud version LLM change:
-<Steps >
-### Step 1
-Visit the chat screen and you will be to see the default LLM selected.
-### Step 2
-Click on it and you will get a drop down of various LLM's available to choose.
-### Step 3
-Choose the LLM of your choice.
-
-</Steps>
-
-
-
-
-### Video Demo
-<Image src="/llms.gif" alt="prompts" width={800} height={500} />
-
-### For Open source llm change:
 <Steps>
 ### Step 1
-For open source version please edit `LLM_PROVIDER`, `LLM_NAME` and others in the .env file. Refer to [⚙️ App Configuration](/Deploying/DocsGPT-Settings) for more information.
+Visit the chat screen and you will see the default LLM selected.
 ### Step 2
-Visit [☁️ Cloud Providers](/Models/cloud-providers) for the updated list of online models. Make sure you have the right API_KEY and correct LLM_PROVIDER.
-For self-hosted please visit [🖥️ Local Inference](/Models/local-inference). 
+Click on it and you will get a dropdown of various LLMs available to choose.
+### Step 3
+Choose the LLM of your choice.
 </Steps>
 
+### Video Demo
+<Image src="/llms.gif" alt="LLM Demo" width={800} height={500} />
 
-
+### For Open source LLM change:
+<Steps>
+### Step 1
+For the open source version, please edit `LLM_PROVIDER`, `LLM_NAME`, and other related variables in the .env file. Refer to [⚙️ App Configuration](/Deploying/DocsGPT-Settings) for more information.
+### Step 2
+Visit [☁️ Cloud Providers](/Models/cloud-providers) for the updated list of online models. Make sure you have the correct API_KEY and LLM_PROVIDER.
+For self-hosted solutions, please visit [🖥️ Local Inference](/Models/local-inference).
+</Steps>

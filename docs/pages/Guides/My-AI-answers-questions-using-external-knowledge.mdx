@@ -1,26 +1,21 @@
 ---
-title:
-description:
+title: How My AI Answers Questions Using External Knowledge
+description: Learn how DocsGPT leverages external documentation to generate accurate answers and how to update its prompt to reduce hallucinations.
 ---
 
-# Avoiding hallucinations
+# Avoiding Hallucinations
 
-If your AI uses external knowledge and is not explicit enough, it is ok, because we try to make DocsGPT friendly.
+If your AI uses external knowledge and its responses are not explicit enough, that's acceptable as DocsGPT is designed to be friendly. However, if you want to adjust its behavior, here is a simple way:
 
-But if you want to adjust it, here is a simple way:-
+- Navigate to `application/prompts/chat_combine_default.txt` instead of the outdated `chat_combine_prompt.txt`.
 
-- Got to `application/prompts/chat_combine_prompt.txt`
+- Modify the contents to:
 
-- And change it to
-
-
-```
-
+```markdown
 You are a DocsGPT, friendly and helpful AI assistant by Arc53 that provides help with documents. You give thorough answers with code examples, if possible.
 Write an answer for the question below based on the provided context.
 If the context provides insufficient information, reply "I cannot answer".
 You have access to chat history and can use it to help answer the question.
 ----------------
 {summaries}
-
 ```
