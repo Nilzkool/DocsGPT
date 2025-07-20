@@ -24,8 +24,8 @@ The fastest way to try out DocsGPT is by using the public API endpoint. This req
 1.  **Clone the DocsGPT Repository (if you haven't already):**
 
     ```bash
-    git clone https://github.com/arc53/DocsGPT.git
-    cd DocsGPT
+git clone https://github.com/Nilzkool/DocsGPT.git
+cd DocsGPT
     ```
 
 2.  **Create a `.env` file:**
@@ -48,7 +48,7 @@ The fastest way to try out DocsGPT is by using the public API endpoint. This req
     Navigate to the root directory of the DocsGPT repository in your terminal and run:
 
     ```bash
-    docker compose -f deployment/docker-compose.yaml up -d
+docker compose -f deployment/docker-compose.yaml up -d
     ```
 
     The `-d` flag runs Docker Compose in detached mode (in the background).
@@ -62,7 +62,7 @@ The fastest way to try out DocsGPT is by using the public API endpoint. This req
     To stop the application, navigate to the same directory in your terminal and run:
 
     ```bash
-    docker compose -f deployment/docker-compose.yaml down
+docker compose -f deployment/docker-compose.yaml down
     ```
 
 ## Optional Ollama Setup (Local Models)
@@ -84,11 +84,11 @@ There are two Ollama optional files:
 
     **CPU:**
     ```bash
-    docker compose --env-file .env -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-cpu.yaml up -d
+docker compose --env-file .env -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-cpu.yaml up -d
     ```
     **GPU:**
     ```bash
-    docker compose --env-file .env -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-gpu.yaml up -d
+docker compose --env-file .env -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-gpu.yaml up -d
     ```
 
 3.  **Pull the Ollama Model:**
@@ -96,11 +96,11 @@ There are two Ollama optional files:
     **Crucially, after launching with Ollama, you need to pull the desired model into the Ollama container.**  Find the `LLM_NAME` you configured in your `.env` file (e.g., `llama3.2:1b`). Then execute the following command to pull the model *inside* the running Ollama container:
 
     ```bash
-    docker compose -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-cpu.yaml exec -it ollama ollama pull <LLM_NAME>
+docker compose -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-cpu.yaml exec -it ollama ollama pull <LLM_NAME>
     ```
     or (for GPU):
      ```bash
-    docker compose -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-gpu.yaml exec -it ollama ollama pull <LLM_NAME>
+docker compose -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-gpu.yaml exec -it ollama ollama pull <LLM_NAME>
     ```
     Replace `<LLM_NAME>` with the actual model name from your `.env` file.
 
@@ -113,12 +113,12 @@ There are two Ollama optional files:
     To stop a DocsGPT setup launched with Ollama optional files, use `docker compose down` and include all the compose files used during the `up` command:
 
     ```bash
-    docker compose -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-cpu.yaml down
+docker compose -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-cpu.yaml down
     ```
     or
 
     ```bash
-    docker compose -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-gpu.yaml down
+docker compose -f deployment/docker-compose.yaml -f deployment/optional/docker-compose.optional.ollama-gpu.yaml down
     ```
 
 **Important for GPU Usage:**
