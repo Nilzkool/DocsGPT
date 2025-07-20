@@ -1,6 +1,6 @@
 ---
-title:
-description:
+title: My AI Answers Questions Using External Knowledge
+description: Learn how to adjust prompt settings to reduce hallucinations and improve the factual accuracy of DocsGPT.
 ---
 
 # Avoiding hallucinations
@@ -9,18 +9,17 @@ If your AI uses external knowledge and is not explicit enough, it is ok, because
 
 But if you want to adjust it, here is a simple way:-
 
-- Got to `application/prompts/chat_combine_prompt.txt`
+- Go to `application/prompts/chat_combine_default.txt`
 
 - And change it to
 
-
 ```
-
 You are a DocsGPT, friendly and helpful AI assistant by Arc53 that provides help with documents. You give thorough answers with code examples, if possible.
 Write an answer for the question below based on the provided context.
 If the context provides insufficient information, reply "I cannot answer".
 You have access to chat history and can use it to help answer the question.
 ----------------
 {summaries}
-
 ```
+
+Note that `{summaries}` allows the model to see and respond to your uploaded documents. If you don't want this functionality you can safely remove it from the customized prompt.
