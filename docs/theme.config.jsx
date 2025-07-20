@@ -1,10 +1,7 @@
 import Image from 'next/image'
 import { Analytics } from '@vercel/analytics/react';
 
-const github = 'https://github.com/arc53/DocsGPT';
-
-
-
+const github = 'https://github.com/Nilzkool/DocsGPT';
 
 import { useConfig, useTheme } from 'nextra-theme-docs';
 import CuteLogo from './public/cute-docsgpt.png';
@@ -15,7 +12,6 @@ const Logo = ({ height, width }) => {
        <Image src={CuteLogo} alt="DocsGPT logo" width={width} height={height} />
 
       <span style={{ fontWeight: 'bold', fontSize: 18 }}>DocsGPT Docs</span>
-
 
     </div>
   );
@@ -56,7 +52,7 @@ const config = {
           DocsGPT
         </a>
         {' | '}
-        <a href="https://github.com/arc53/DocsGPT" target="_blank">
+        <a href="https://github.com/Nilzkool/DocsGPT" target="_blank">
           GitHub
         </a>
         {' | '}
@@ -88,7 +84,7 @@ const config = {
     const title = frontMatter?.title || 'Chat with your data with DocsGPT';
     const description =
       frontMatter?.description ||
-      'Use DocsGPT to chat with your data. DocsGPT is a GPT powered chatbot that can answer questions about your data.'
+      'Use DocsGPT to chat with your data. DocsGPT is a GPT powered chatbot that can answer questions about your data.';
     const image = '/cute-docsgpt.png';
 
     const composedTitle = `${title} – DocsGPT Documentation`;

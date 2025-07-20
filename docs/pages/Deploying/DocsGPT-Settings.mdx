@@ -61,8 +61,9 @@ Here are some of the most fundamental settings you'll likely want to configure:
     - **Default value:** `huggingface_sentence-transformers/all-mpnet-base-v2` (a good general-purpose embedding model).
     - **Other options:** You can explore other embedding models from Hugging Face Sentence Transformers or other providers if needed.
 
-- **`API_KEY`**:  Required for most cloud-based LLM providers.  This is your authentication key to access the LLM provider's API. You'll need to obtain this key from your chosen provider's platform.
-
+- **`API_KEY`**:  Required for most cloud-based LLM providers. This is your authentication key to access the LLM provider's API. 
+    - **Note:** When using `LLM_PROVIDER=docsgpt`, DocsGPT uses a default public API key (`sk-docsgpt-public`) and base URL (`https://oai.arc53.com`); in this case, you do not need to supply your own API key.
+    
 - **`OPENAI_BASE_URL`**:  Specifically used when `LLM_PROVIDER` is set to `openai` but you are connecting to a local inference engine (like Ollama, Llama.cpp, etc.) that exposes an OpenAI-compatible API.  This setting tells DocsGPT where to find your local LLM server.
 
 ## Configuration Examples
