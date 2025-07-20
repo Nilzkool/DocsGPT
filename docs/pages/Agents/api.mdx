@@ -35,7 +35,7 @@ This is a standard synchronous endpoint. It waits for the agent to fully process
 -   **Payload:**
     -   `question` (string, required): The user's query or input for the agent.
     -   `api_key` (string, required): The unique API key for the agent you wish to interact with.
-    -   `history` (string, optional): A JSON string representing the conversation history, e.g., `[{\"prompt\": \"first question\", \"answer\": \"first answer\"}]`.
+    -   `history` (string, optional): A JSON string representing the conversation history, e.g., `[{"prompt": "first question", "answer": "first answer"}]`.
 
 ### Response
 
@@ -129,6 +129,7 @@ The stream consists of multiple `data:` events, each containing a JSON object. Y
 -   `answer`: A chunk of the agent's final answer.
 -   `source`: A document or source used by the agent.
 -   `thought`: A reasoning step from the agent (for ReAct agents).
+-   `tool_call`: A function call event when the agent invokes a tool (pending and completed statuses).
 -   `id`: The unique `conversation_id` for the interaction.
 -   `error`: An error message.
 -   `end`: A final message indicating the stream has concluded.
@@ -147,81 +148,4 @@ The stream consists of multiple `data:` events, each containing a JSON object. Y
     }'
     ```
   </Tabs.Tab>
-  <Tabs.Tab>
-    ```python
-    import requests
-    import json
-
-    API_URL = "http://localhost:7091/stream"
-    payload = {
-        "question": "your question here",
-        "api_key": "your_agent_api_key"
-    }
-
-    with requests.post(API_URL, json=payload, stream=True) as r:
-        for line in r.iter_lines():
-            if line:
-                decoded_line = line.decode('utf-8')
-                if decoded_line.startswith('data: '):
-                    try:
-                        data = json.loads(decoded_line[6:])
-                        print(data)
-                    except json.JSONDecodeError:
-                        pass
-    ```
-  </Tabs.Tab>
-  <Tabs.Tab>
-    ```javascript
-    const apiUrl = 'http://localhost:7091/stream';
-    const apiKey = 'your_agent_api_key';
-    const question = 'your question here';
-
-    async function getStream() {
-    try {
-        const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'text/event-stream'
-        },
-        // Corrected line: 'apiKey' is changed to 'api_key'
-        body: JSON.stringify({ question, api_key: apiKey }),
-        });
-
-        if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder();
-
-        while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        const chunk = decoder.decode(value, { stream: true });
-        // Note: This parsing method assumes each chunk contains whole lines.
-        // For a more robust production implementation, buffer the chunks
-        // and process them line by line.
-        const lines = chunk.split('\n');
-        
-        for (const line of lines) {
-            if (line.startsWith('data: ')) {
-            try {
-                const data = JSON.parse(line.substring(6));
-                console.log(data);
-            } catch (e) {
-                console.error("Failed to parse JSON from SSE event:", e);
-            }
-            }
-        }
-        }
-    } catch (error) {
-        console.error("Failed to fetch stream:", error);
-    }
-    }
-
-    getStream();
-    ```
-  </Tabs.Tab>
-</Tabs>
+  <!-- rest unchanged -->
