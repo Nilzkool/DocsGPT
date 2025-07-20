@@ -37,7 +37,7 @@ Your instance will be ready a few minutes after creation. To access it, open the
 
 A terminal window will pop up, and the first step will be to clone the DocsGPT Git repository:
 
-`git clone https://github.com/arc53/DocsGPT.git`
+`git clone https://github.com/Nilzkool/DocsGPT.git`
 
 #### Download the package information
 
@@ -63,21 +63,21 @@ Enter the following command to access the folder in which the DocsGPT docker-com
 
 #### Prepare the Environment
 
-Inside the DocsGPT folder create a `.env` file and copy the contents of `.env_sample` into it.
+Inside the DocsGPT folder create a `.env` file and copy the contents of `.env-template` into it.
 
 `nano .env`
 
 Make sure your `.env` file looks like this:
 
 ```
-OPENAI_API_KEY=(Your OpenAI API key)
+API_KEY=<Your LLM API key>
+LLM_NAME=docsgpt
 VITE_API_STREAMING=true
-SELF_HOSTED_MODEL=false
 ```
 
 To save the file, press CTRL+X, then Y, and then ENTER.
 
-Next, set the correct IP for the Backend by opening the docker-compose.yml file:
+Next, set the correct IP for the Backend by opening the docker-compose.yaml file:
 
 `nano deployment/docker-compose.yaml`
 
