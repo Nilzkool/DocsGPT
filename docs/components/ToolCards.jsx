@@ -4,6 +4,7 @@ const iconMap = {
     'API Tool': '/toolIcons/tool_api_tool.svg',
     'Brave Search Tool': '/toolIcons/tool_brave.svg',
     'Cryptoprice Tool': '/toolIcons/tool_cryptoprice.svg',
+    'DuckDuckGo Search': '/toolIcons/tool_duckduckgo.svg',
     'Ntfy Tool': '/toolIcons/tool_ntfy.svg',
     'PostgreSQL Tool': '/toolIcons/tool_postgres.svg',
     'Read Webpage Tool': '/toolIcons/tool_read_webpage.svg',
