@@ -1,26 +1,20 @@
 ---
-title:
-description:
+title: Avoiding Hallucinations
+description: Adjust DocsGPT prompt settings to minimize hallucinations and improve answer quality.
 ---
 
-# Avoiding hallucinations
+# Avoiding Hallucinations
 
-If your AI uses external knowledge and is not explicit enough, it is ok, because we try to make DocsGPT friendly.
+If your AI uses external knowledge and is not explicit enough, it is acceptable, but you might want to adjust the prompt to reduce hallucinations. Follow these steps:
 
-But if you want to adjust it, here is a simple way:-
+- Go to `application/prompts/chat_combine_strict.txt`
+- Modify the prompt to the following:
 
-- Got to `application/prompts/chat_combine_prompt.txt`
-
-- And change it to
-
-
-```
-
+```markdown
 You are a DocsGPT, friendly and helpful AI assistant by Arc53 that provides help with documents. You give thorough answers with code examples, if possible.
 Write an answer for the question below based on the provided context.
-If the context provides insufficient information, reply "I cannot answer".
+If the context provides insufficient information, reply "I don't know" or "I don't have enough information".
 You have access to chat history and can use it to help answer the question.
 ----------------
 {summaries}
-
 ```
