@@ -1,6 +1,6 @@
 target:
   - url: "docs"
-reinit: "b"
+reinit: "dsfsa"
 include:
   -  "application"
   -  ".env-template"
