@@ -1,6 +1,6 @@
 ---
 title: Comprehensive Guide to Setting Up the Chatwoot Extension with DocsGPT
-description: This step-by-step guide walks you through the process of setting up the Chatwoot extension with DocsGPT, enabling seamless integration for automated responses and enhanced customer support. Learn how to launch DocsGPT, retrieve your Chatwoot access token, configure the .env file, and start the extension.
+description: This step-by-step guide walks you through the process of setting up the Chatwoot extension with DocsGPT, enabling seamless integration for automated responses and enhanced customer support.
 ---
 ## Chatwoot Extension Setup Guide
 
@@ -28,20 +28,14 @@ chatwoot_token=<Token from Step 2>
 
 ### Step 4: Start the Extension
 
-- Use the command `flask run` to start the extension.
-
-### Step 5: Optional - Extra Validation
-
-- In app.py, uncomment lines 12-13 and 71-75.
-- Add the following lines to your .env file:
-```account_id=(optional) 1
-assignee_id=(optional) 1
+- From the `/extensions/chatwoot` directory, run:
+```bash
+flask run
 ```
-These Chatwoot values help ensure you respond to the correct widget and handle questions assigned to a specific user.
 
 ### Stopping Bot Responses for Specific User or Session
 
-- If you want the bot to stop responding to questions for a specific user or session, add a label `human-requested` in your conversation.
+- If you want the bot to stop responding to questions for a specific user or session, add the label `human-requested` in your conversation.
 
 ### Additional Notes
 

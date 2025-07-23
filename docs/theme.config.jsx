@@ -1,10 +1,8 @@
 import Image from 'next/image'
 import { Analytics } from '@vercel/analytics/react';
 
-const github = 'https://github.com/arc53/DocsGPT';
-
-
-
+// Updated to point to the Nilzkool repository
+const github = 'https://github.com/Nilzkool/DocsGPT';
 
 import { useConfig, useTheme } from 'nextra-theme-docs';
 import CuteLogo from './public/cute-docsgpt.png';
@@ -15,7 +13,6 @@ const Logo = ({ height, width }) => {
        <Image src={CuteLogo} alt="DocsGPT logo" width={width} height={height} />
 
       <span style={{ fontWeight: 'bold', fontSize: 18 }}>DocsGPT Docs</span>
-
 
     </div>
   );
@@ -56,7 +53,7 @@ const config = {
           DocsGPT
         </a>
         {' | '}
-        <a href="https://github.com/arc53/DocsGPT" target="_blank">
+        <a href="https://github.com/Nilzkool/DocsGPT" target="_blank">
           GitHub
         </a>
         {' | '}
@@ -144,12 +141,10 @@ const config = {
           {title}
             <Analytics />
         </div>
-
       ) : (
         <>{title}
         <Analytics />
         </>
-
       ),
   },
 

@@ -15,6 +15,7 @@ When you use an API key generated for a specific agent, you do not need to pass 
 
 - **Non-Streaming:** `http://localhost:7091/api/answer`
 - **Streaming:** `http://localhost:7091/stream`
+- **Search:** `http://localhost:7091/api/search` (POST) – Retrieve relevant documents for a query without generating a full answer.
 
 <Callout type="info">
 For DocsGPT Cloud, use `https://gptcloud.arc53.com/` as the base URL.
@@ -111,117 +112,69 @@ A single JSON object containing:
 
 ---
 
-## Streaming API (`/stream`)
+## Search API (`/api/search`)
 
-The `/stream` endpoint uses Server-Sent Events (SSE) to push data in real-time. This is ideal for applications where you want to display the response as it's being generated, such as in a live chatbot interface.
+This endpoint allows you to retrieve relevant documents for a given query without generating a full answer. It's useful for use cases where you only need the source content.
 
 ### Request
 
--   **Endpoint:** `/stream`
+-   **Endpoint:** `/api/search`
 -   **Method:** `POST`
--   **Payload:** Same as the non-streaming API.
+-   **Payload:**
+    -   `question` (string, required): The user's query.
+    -   `chunks` (integer, optional): Number of chunks to retrieve (default: 2).
+    -   `api_key` (string, optional): API key for authentication.
+    -   `active_docs` (string, optional): ID of the active document source.
+    -   `retriever` (string, optional): Retriever type.
+    -   `token_limit` (integer, optional): Token limit for retrieval.
+    -   `isNoneDoc` (boolean, optional): If true, retrieval skips document context.
 
-### Response (SSE Stream)
+### Response
 
-The stream consists of multiple `data:` events, each containing a JSON object. Your client should listen for these events and process them based on their `type`.
-
-**Event Types:**
--   `answer`: A chunk of the agent's final answer.
--   `source`: A document or source used by the agent.
--   `thought`: A reasoning step from the agent (for ReAct agents).
--   `id`: The unique `conversation_id` for the interaction.
--   `error`: An error message.
--   `end`: A final message indicating the stream has concluded.
+An array of document objects containing:
+-   `id`: Document ID.
+-   `source`: The origin of the document.
+-   `text`: The content snippet retrieved.
 
 ### Examples
 
 <Tabs items={['cURL', 'Python', 'JavaScript']}>
   <Tabs.Tab>
     ```bash
-    curl -X POST http://localhost:7091/stream \
+    curl -X POST http://localhost:7091/api/search \
     -H "Content-Type: application/json" \
-    -H "Accept: text/event-stream" \
     -d '{
-        "question": "your question here",
-        "api_key": "your_agent_api_key"
+        "question": "your question here"
     }'
     ```
   </Tabs.Tab>
   <Tabs.Tab>
     ```python
     import requests
-    import json
 
-    API_URL = "http://localhost:7091/stream"
-    payload = {
-        "question": "your question here",
-        "api_key": "your_agent_api_key"
-    }
+    API_URL = "http://localhost:7091/api/search"
+    payload = {"question": "your question here"}
 
-    with requests.post(API_URL, json=payload, stream=True) as r:
-        for line in r.iter_lines():
-            if line:
-                decoded_line = line.decode('utf-8')
-                if decoded_line.startswith('data: '):
-                    try:
-                        data = json.loads(decoded_line[6:])
-                        print(data)
-                    except json.JSONDecodeError:
-                        pass
+    response = requests.post(API_URL, json=payload)
+    print(response.json())
     ```
   </Tabs.Tab>
   <Tabs.Tab>
     ```javascript
-    const apiUrl = 'http://localhost:7091/stream';
-    const apiKey = 'your_agent_api_key';
+    const apiUrl = 'http://localhost:7091/api/search';
     const question = 'your question here';
 
-    async function getStream() {
-    try {
-        const response = await fetch(apiUrl, {
+    async function getDocs() {
+      const response = await fetch(apiUrl, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'text/event-stream'
-        },
-        // Corrected line: 'apiKey' is changed to 'api_key'
-        body: JSON.stringify({ question, api_key: apiKey }),
-        });
-
-        if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder();
-
-        while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        const chunk = decoder.decode(value, { stream: true });
-        // Note: This parsing method assumes each chunk contains whole lines.
-        // For a more robust production implementation, buffer the chunks
-        // and process them line by line.
-        const lines = chunk.split('\n');
-        
-        for (const line of lines) {
-            if (line.startsWith('data: ')) {
-            try {
-                const data = JSON.parse(line.substring(6));
-                console.log(data);
-            } catch (e) {
-                console.error("Failed to parse JSON from SSE event:", e);
-            }
-            }
-        }
-        }
-    } catch (error) {
-        console.error("Failed to fetch stream:", error);
-    }
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question })
+      });
+      const docs = await response.json();
+      console.log(docs);
     }
 
-    getStream();
+    getDocs();
     ```
   </Tabs.Tab>
 </Tabs>

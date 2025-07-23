@@ -4,6 +4,7 @@ const iconMap = {
     'API Tool': '/toolIcons/tool_api_tool.svg',
     'Brave Search Tool': '/toolIcons/tool_brave.svg',
     'Cryptoprice Tool': '/toolIcons/tool_cryptoprice.svg',
+    'DuckDuckGo Search Tool': '/toolIcons/tool_duckduckgo.svg',  // Added mapping for DuckDuckGo
     'Ntfy Tool': '/toolIcons/tool_ntfy.svg',
     'PostgreSQL Tool': '/toolIcons/tool_postgres.svg',
     'Read Webpage Tool': '/toolIcons/tool_read_webpage.svg',
@@ -37,7 +38,7 @@ export function ToolCards({ items }) {
                 })}
             </div>
 
-            <style jsx>{`
+            <style jsx>{` 
                .tool-cards {
                     margin-top: 24px;
                     display: grid;
