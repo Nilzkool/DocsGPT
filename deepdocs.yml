@@ -1,6 +1,6 @@
 target:
   - url: "docs"
-reinit: "a"
+reinit: "ds"
 include:
   -  "application"
   -  ".env-template"
