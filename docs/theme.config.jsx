@@ -1,10 +1,8 @@
 import Image from 'next/image'
 import { Analytics } from '@vercel/analytics/react';
 
-const github = 'https://github.com/arc53/DocsGPT';
-
-
-
+// Update GitHub repository URL
+const github = 'https://github.com/Nilzkool/DocsGPT';
 
 import { useConfig, useTheme } from 'nextra-theme-docs';
 import CuteLogo from './public/cute-docsgpt.png';
@@ -56,7 +54,7 @@ const config = {
           DocsGPT
         </a>
         {' | '}
-        <a href="https://github.com/arc53/DocsGPT" target="_blank">
+        <a href="https://github.com/Nilzkool/DocsGPT" target="_blank">
           GitHub
         </a>
         {' | '}

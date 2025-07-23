@@ -93,7 +93,7 @@ Your custom tool class needs to implement the following methods:
         except Exception as e:
             return {"status_code": 500, "message": f"Error processing URL {url}", "error": str(e)}
         ```
-        
+
 3. **`get_actions_metadata(self) -> list`**
     
     - **Purpose:** This method is **critical** for the LLM to understand what your tool can do, when to use it, and what parameters it needs. It effectively advertises your tool's capabilities.
@@ -127,7 +127,7 @@ Your custom tool class needs to implement the following methods:
                 # ... other actions like postgres_get_schema
             ]
         ```
-        
+
 4. **`get_config_requirements(self) -> dict`**
     
     - **Purpose:** Defines the configuration parameters that your tool needs to function (e.g., API keys, specific base URLs, connection strings, default settings). This information can be used by the DocsGPT UI to dynamically render configuration fields for your tool or for validation.
@@ -181,6 +181,6 @@ If you develop a custom tool that you believe could be valuable to the broader D
 
 1. Ensure it's well-documented (both in code and with clear metadata).
 2. Make sure it adheres to the best practices outlined above.
-3. Consider opening a Pull Request to the [DocsGPT GitHub repository](https://github.com/arc53/DocsGPT) with your new tool, including any necessary documentation updates.
+3. Consider opening a Pull Request to the [DocsGPT GitHub repository](https://github.com/Nilzkool/DocsGPT) with your new tool, including any necessary documentation updates.
 
 By following this guide, you can create powerful custom tools that extend DocsGPT's capabilities to your specific operational environment.
